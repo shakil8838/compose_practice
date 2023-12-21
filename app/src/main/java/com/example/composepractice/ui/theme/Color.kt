@@ -19,4 +19,4 @@ val ColorWhite = Color(0xFFFFFFFF)
 val ColorBlack = Color(0xFF000000)
 
 val secondaryBlack100 = Color(0xFF71828A)
-val ColorBrandSecondary = Color(0xFFCCEAE1)
+val ColorSecondary = Color(0xFFCCEAE1)

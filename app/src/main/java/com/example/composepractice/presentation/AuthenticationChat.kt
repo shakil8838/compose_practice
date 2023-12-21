@@ -46,7 +46,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composepractice.ui.theme.ColorBrandSecondary
+import com.example.composepractice.ui.theme.ColorSecondary
 import com.example.composepractice.ui.theme.colorPrimary
 import com.example.composepractice.ui.theme.colorPrimary100
 
@@ -234,7 +234,7 @@ private fun PageDivider(pageCount: Int = 2) {
                 Modifier
                     .height(2.dp)
                     .width((64 / (pageCount * .2)).dp),
-                color = if (currentPage == i) colorPrimary else ColorBrandSecondary
+                color = if (currentPage == i) colorPrimary else ColorSecondary
             )
         }
     }
@@ -393,7 +393,7 @@ fun ClassSelection() {
                     .padding(top = 8.dp)
                     .padding(end = 8.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = ColorBrandSecondary,
+                    containerColor = ColorSecondary,
                 ),
                 shape = RoundedCornerShape(8.dp)
             ) {
