@@ -40,7 +40,7 @@ fun TabBar(tabNames: Array<String>) {
             for (i in tabNames.indices) {
                 Tab(
                     selected = selectedTab.ordinal == i,
-                    onClick = { selectedTab = Tab.values()[i] },
+                    onClick = { selectedTab = Tab.entries.toTypedArray()[i] },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(tabNames[i], modifier = Modifier.padding(8.dp))
@@ -103,7 +103,7 @@ fun RoutineContent() {
     Column(
         modifier = Modifier.padding(16.dp)
     ) {
-        TableWidget()
+        //TableWidget()
     }
 }
 
@@ -117,7 +117,7 @@ fun ResourceContent() {
 
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun PreviewTabBar() {
     TabBar(arrayOf("সংক্ষিপ্ত বর্ণনা", "ক্লাস রুটিন"))

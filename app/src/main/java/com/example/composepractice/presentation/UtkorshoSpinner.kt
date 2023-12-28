@@ -6,18 +6,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,29 +27,32 @@ import androidx.compose.ui.unit.dp
 import com.example.composepractice.ui.theme.colorPrimary100
 
 @Composable
-fun UtkorshoSpinner() {
-
+fun UtkorshoSpinner(
+    modifier: Modifier = Modifier,
+    items: List<String>,
+    clickedItem: (String) -> Unit,
+    preSelectedItem: String?
+) {
+    Spinner(
+        modifier = modifier,
+        items = items,
+        clickedItem = clickedItem,
+        preSelectedItem = preSelectedItem
+    )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Spinner(
     modifier: Modifier = Modifier,
     items: List<String>,
-    selectedItem: String,
-    onItemSelected: (String) -> Unit
+    clickedItem: (String) -> Unit,
+    preSelectedItem: String?
 ) {
-    var selectedItem by remember { mutableStateOf("Item 1") }
+    var selectedItem by remember { mutableStateOf(preSelectedItem ?: items[0]) }
     var expanded by remember { mutableStateOf(false) }
 
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-            .clickable {
-                expanded = true
-                Log.d("Spinner", "Spinner: $expanded")
-            }
+        modifier = modifier
     ) {
 
         OutlinedButton(
@@ -93,6 +91,7 @@ private fun Spinner(
                 DropdownMenuItem(onClick = {
                     selectedItem = item
                     expanded = false
+                    clickedItem(item)
                 }, text = { Text(text = item) })
             }
         }
@@ -103,8 +102,10 @@ private fun Spinner(
 @Preview(showBackground = true, showSystemUi = true)
 fun SpinnerPreview() {
     Spinner(
-        items = listOf("Item 1", "Item 2", "Item 3"),
-        selectedItem = "Item 1",
-        onItemSelected = {}
+        items = listOf("Select", "Item 1", "Item 2", "Item 3"),
+        clickedItem = {
+            Log.d("Spinner", "Spinner: $it")
+        },
+        preSelectedItem = "Item 2"
     )
 }

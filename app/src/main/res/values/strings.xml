@@ -1,4 +1,33 @@
 <resources>
     <string name="app_name">ComposePractice</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string-array name="board_list" translatable="false">
+        <item>Select your board</item>
+        <item>Dhaka</item>
+        <item>Cumilla</item>
+        <item>Rajshahi</item>
+        <item>Jashore</item>
+        <item>Chittagong</item>
+        <item>Barishal</item>
+        <item>Sylhet</item>
+        <item>Dinajpur</item>
+        <item>Madrasah</item>
+        <item>Open University</item>
+        <item>Mymensingh</item>
+        <item>The State Medical Faculty of Bangladesh</item>
+        <item>Pharmacy Council of Bangladesh</item>
+        <item>Cambridge International - IGCE</item>
+        <item>Edexcel International</item>
+        <item>Technical</item>
+    </string-array>
+
+    <string-array name="section_list" translatable="false">
+        <item>Select your section</item>
+        <item>Science</item>
+        <item>Arts</item>
+        <item>Commerce</item>
+    </string-array>
+
+
 </resources>

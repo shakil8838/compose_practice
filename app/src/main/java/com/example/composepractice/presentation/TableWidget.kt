@@ -31,7 +31,7 @@ import com.example.composepractice.ui.theme.fontWeight700
 private const val TAG = "TableWidget"
 
 @Composable
-fun TableWidget() {
+fun TableWidget(listOfRoutineData: List<Any>, onClassItemClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -80,35 +80,17 @@ fun TableWidget() {
                 )
             }
 
-//            TableData(
-//                listOf(
-//                    "1",
-//                    "2",
-//                    "3",
-//                    "4",
-//                    "5",
-//                    "6",
-//                    "7", "3",
-//                    "4",
-//                    "5",
-//                    "6",
-//                    "7", "3",
-//                    "4",
-//                    "5",
-//                    "6",
-//                    "7",
-//                )
-//            )
-            CommentWidget{
-                Log.e(TAG, "TableWidget: $it")
-            }
+            TableData(
+                routineList = listOfRoutineData,
+                onClassItemClick = onClassItemClick
+            )
         }
     }
 
 }
 
 @Composable
-private fun TableData(routineList: List<Any>) {
+private fun TableData(routineList: List<Any>, onClassItemClick: () -> Unit) {
     LazyColumn(content = {
         items(routineList.size) { index ->
             Row(
@@ -142,10 +124,7 @@ private fun TableData(routineList: List<Any>) {
                         .padding(16.dp)
                         .clickable {
                             Log.e(TAG, "TableData: Clicked")
-                            // startActivity(context,
-                            // Intent(context, LiveActivity::class.java)
-                            // .putExtra("class", index.classUrl())
-                            // )
+                            onClassItemClick()
                         },
                     verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
 
@@ -229,23 +208,15 @@ private fun TableData(routineList: List<Any>) {
 }
 
 @Composable
-@Preview
+@Preview(showSystemUi = true)
 fun previewTableWidget() {
-    TableWidget()
+    TableWidget(listOfRoutineData = listOf("Hello", "World")) {
+
+    }
 }
 
 @Composable
 @Preview
 fun previewTableData() {
-    TableData(
-        listOf(
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-        )
-    )
+
 }
