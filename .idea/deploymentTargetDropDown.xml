@@ -2,22 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="ChapterListPreview">
-        <State />
-      </entry>
       <entry key="EditProfileScreenContentPreview">
         <State />
       </entry>
-      <entry key="EditProfileScreenPreview">
-        <State />
-      </entry>
-      <entry key="ProfileScreenPreview">
+      <entry key="PreviewTabBar">
         <State />
       </entry>
       <entry key="SpinnerPreview">
         <State />
       </entry>
       <entry key="Unnamed">
+        <State />
+      </entry>
+      <entry key="YoutubePlayerViewPreview">
+        <State />
+      </entry>
+      <entry key="YoutubePlayerViewPreview (1)">
         <State />
       </entry>
     </value>

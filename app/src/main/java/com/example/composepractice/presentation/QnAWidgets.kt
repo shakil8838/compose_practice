@@ -249,7 +249,7 @@ fun ReplyItem(replyDataModel: ReplyDataModel) {
 }
 
 @Composable
-@DevicePreview
+@Preview
 fun QnAListsPreview() {
     QnALists(
         listOf(
